@@ -20,17 +20,23 @@
     var CONFIG = {"hostname":"went9886.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="MQ使用">
-<meta property="og:url" content="https://went9886.github.io/2024/11/22/mq/index.html">
+  <meta name="description" content="Docker部署seata-2.2.0一、打开seata官网，下载seata最新版（2.2.0）1https:&#x2F;&#x2F;seata.apache.org&#x2F;zh-cn&#x2F;unversioned&#x2F;download&#x2F;seata-server   二、在Linux根目录解压12# &#x2F;root&#x2F;tar -zxvf apache-seata-2.2.0-incubating-bin.tar.gz  创建seata文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="秋艾">
+<meta property="og:url" content="https://went9886.github.io/2024/11/22/seate%20v2.2.0%20%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="秋艾">
+<meta property="og:description" content="Docker部署seata-2.2.0一、打开seata官网，下载seata最新版（2.2.0）1https:&#x2F;&#x2F;seata.apache.org&#x2F;zh-cn&#x2F;unversioned&#x2F;download&#x2F;seata-server   二、在Linux根目录解压12# &#x2F;root&#x2F;tar -zxvf apache-seata-2.2.0-incubating-bin.tar.gz  创建seata文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-22T01:54:23.150Z">
-<meta property="article:modified_time" content="2024-11-22T02:42:16.880Z">
+<meta property="og:image" content="https://went9886.github.io/images/seata_down.png">
+<meta property="og:image" content="https://went9886.github.io/images/simple_edit2.png">
+<meta property="og:image" content="https://went9886.github.io/images/seata_run_success.png">
+<meta property="article:published_time" content="2024-11-22T04:20:08.295Z">
+<meta property="article:modified_time" content="2024-11-22T06:06:42.250Z">
 <meta property="article:author" content="秋艾">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://went9886.github.io/images/seata_down.png">
 
-<link rel="canonical" href="https://went9886.github.io/2024/11/22/mq/">
+<link rel="canonical" href="https://went9886.github.io/2024/11/22/seate%20v2.2.0%20%E5%AE%89%E8%A3%85/">
 
 
 <script id="page-configurations">
@@ -43,7 +49,7 @@
   };
 </script>
 
-  <title>MQ使用 | 秋艾</title>
+  <title> | 秋艾</title>
   
 
 
@@ -149,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://went9886.github.io/2024/11/22/mq/">
+    <link itemprop="mainEntityOfPage" href="https://went9886.github.io/2024/11/22/seate%20v2.2.0%20%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -162,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MQ使用
+          
         </h1>
 
         <div class="post-meta">
@@ -173,7 +179,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-11-22 09:54:23 / 修改时间：10:42:16" itemprop="dateCreated datePublished" datetime="2024-11-22T09:54:23+08:00">2024-11-22</time>
+              <time title="创建时间：2024-11-22 12:20:08 / 修改时间：14:06:42" itemprop="dateCreated datePublished" datetime="2024-11-22T12:20:08+08:00">2024-11-22</time>
             </span>
 
           
@@ -187,7 +193,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="Docker部署seata-2-2-0"><a href="#Docker部署seata-2-2-0" class="headerlink" title="Docker部署seata-2.2.0"></a>Docker部署seata-2.2.0</h1><h4 id="一、打开seata官网，下载seata最新版（2-2-0）"><a href="#一、打开seata官网，下载seata最新版（2-2-0）" class="headerlink" title="一、打开seata官网，下载seata最新版（2.2.0）"></a>一、打开seata官网，下载seata最新版（2.2.0）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://seata.apache.org/zh-cn/unversioned/download/seata-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/seata_down.png"></p>
+<h4 id="二、在Linux根目录解压"><a href="#二、在Linux根目录解压" class="headerlink" title="二、在Linux根目录解压"></a>二、在Linux根目录解压</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># /root/</span><br><span class="line">tar -zxvf apache-seata-2.2.0-incubating-bin.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>创建seata文件夹，为后续【挂载】准备</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建文件夹</span><br><span class="line">mkdir seata</span><br><span class="line"># 复制配置文件</span><br><span class="line">cp -r /root/seata-server/conf/* /root/seata/</span><br></pre></td></tr></table></figure>
+
+<p>三、部署到Docker</p>
+<p>1.用官方构建文件构建容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv ./seata-server/Dockerfile .</span><br></pre></td></tr></table></figure>
+
+<p>2.简单编辑一下 <code>Dockerfile</code>文件</p>
+<p><img src="/images/simple_edit2.png"></p>
+<p>3.部署到<code>Docker</code>，如果需要连接MySQL数据库，还需导入jdbc库</p>
+<p>（1）下载数据库连接工具，我的是9.0.0，解压文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://downloads.mysql.com/archives/c-j/</span><br></pre></td></tr></table></figure>
+
+<p>（2）将解压出来的jar文件，我的是<code>mysql-connector-j-9.0.0.jar</code>，添加到<code>seata-server/lib</code>文件夹下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-connector-j-9.0.0.jar /root/seata-server/lib/</span><br></pre></td></tr></table></figure>
+
+<p>构建镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t seata-server:2.2.0 .</span><br></pre></td></tr></table></figure>
+
+<p>4.运行<code>seata</code>容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run --name seata \</span><br><span class="line">-p 8091:8091 \</span><br><span class="line">-p 7091:7091 \</span><br><span class="line">-e SEATA_IP=192.168.88.67 \</span><br><span class="line">-v ./seata:/seata-server/conf \</span><br><span class="line">--privileged=true \</span><br><span class="line">-d \</span><br><span class="line">seata-server:2.2.0</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">–name 名称</td>
+<td align="center">为容器指定名称</td>
+</tr>
+<tr>
+<td align="center">-e SEATA_IP&#x3D;虚拟主机地址</td>
+<td align="center">设置环境变量</td>
+</tr>
+<tr>
+<td align="center">-v .&#x2F;seata:&#x2F;seata-server&#x2F;conf</td>
+<td align="center">将主机的<code>./seata</code>目录挂载到容器的<code>/seata-server/conf</code>目录，方便配置文件</td>
+</tr>
+<tr>
+<td align="center">–privileged&#x3D;true</td>
+<td align="center">允许容器访问主机的所有设备</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">以分离模式运行容器，即容器会在后台运行</td>
+</tr>
+<tr>
+<td align="center">seata-server:2.2.0</td>
+<td align="center">指定要运行的Docker镜像及其标签</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看日志</span><br><span class="line">docker logs -f seata</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./images/seata_run_success.png"></p>
+
     </div>
 
     
@@ -202,13 +270,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/11/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/" rel="prev" title="微服务问题">
-      <i class="fa fa-chevron-left"></i> 微服务问题
+    <a href="/2024/11/22/mq/" rel="prev" title="MQ使用">
+      <i class="fa fa-chevron-left"></i> MQ使用
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/11/22/seate%20v2.2.0%20%E5%AE%89%E8%A3%85/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -267,6 +332,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2seata-2-2-0"><span class="nav-number">1.</span> <span class="nav-text">Docker部署seata-2.2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%89%93%E5%BC%80seata%E5%AE%98%E7%BD%91%EF%BC%8C%E4%B8%8B%E8%BD%BDseata%E6%9C%80%E6%96%B0%E7%89%88%EF%BC%882-2-0%EF%BC%89"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一、打开seata官网，下载seata最新版（2.2.0）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9C%A8Linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E8%A7%A3%E5%8E%8B"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">二、在Linux根目录解压</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
